@@ -234,7 +234,7 @@ docker build --target harness-all -t astraflow-harness-all .
 docker run --rm astraflow-harness-all
 ```
 
-Pushes to `main` run formatting, tests, Clippy, and hostile-config routing checks with pinned Claude Code 2.1.233, Codex CLI 0.147.0, Grok Build 1.0.4, OpenCode 1.18.18, Hermes Agent 0.19.0, Pi 0.84.2 and 0.73.1, DeepSeek Harness 0.1.0-rc.6, and Prime Agent 0.7.2 on the repository's dedicated Linux x64 self-hosted Rust runner. Tags matching the crate version, such as `v0.3.1`, build Linux GNU binaries inside Rust 1.88 Bookworm containers for glibc 2.36 compatibility, plus native macOS Intel/Apple Silicon and Windows x64/ARM64 archives, before publishing a checksummed GitHub Release. Public pull requests do not run on the self-hosted machine.
+Pushes to `main` run formatting, tests, Clippy, and hostile-config routing checks with pinned Claude Code 2.1.233, Codex CLI 0.147.0, Grok Build 1.0.4, OpenCode 1.18.18, Hermes Agent 0.19.0, Pi 0.84.2 and 0.73.1, DeepSeek Harness 0.1.0-rc.6, and Prime Agent 0.7.2 on GitHub-hosted runners. Tags matching the crate version, such as `v0.3.1`, build Linux GNU binaries inside Rust 1.88 Bookworm containers for glibc 2.36 compatibility, plus native macOS Intel/Apple Silicon and Windows x64/ARM64 archives, before publishing a checksummed GitHub Release.
 
 Each release also publishes `release-manifest.json`. Automatic and explicit update checks read it
 through GitHub's latest-release asset URL, avoiding the unauthenticated GitHub REST API rate limit.

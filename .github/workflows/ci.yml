@@ -14,8 +14,8 @@ concurrency:
 
 jobs:
   rust:
-    name: Rust checks (self-hosted)
-    runs-on: [self-hosted, linux, x64, rust, astraflow-cli]
+    name: Rust checks
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
       CARGO_TERM_COLOR: always
@@ -40,8 +40,8 @@ jobs:
           "$fixture/bin/astraflow" --json version
 
   harness-routing:
-    name: Eight real CLI routing checks (self-hosted)
-    runs-on: [self-hosted, linux, x64, rust, astraflow-cli]
+    name: Eight real CLI routing checks
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7

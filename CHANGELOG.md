@@ -6,6 +6,7 @@
   `ucloud/astraflow-cli`.
 - Read the latest version from a static release asset instead of the rate-limited GitHub Releases
   API.
+- Run CI and Linux x64 release builds on GitHub-hosted runners after the repository migration.
 
 ## 0.3.6 — 2026-08-18
 
