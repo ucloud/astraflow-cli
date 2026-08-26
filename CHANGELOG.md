@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.7 — 2026-08-26
+
+- Move the official source, installers, release downloads, and automatic update checks to
+  `ucloud/astraflow-cli`.
+- Read the latest version from a static release asset instead of the rate-limited GitHub Releases
+  API.
+
 ## 0.3.6 — 2026-08-18
 
 - Add a sourced model context-window catalog shared by Claude Code, Codex, Pi, and Prime Agent;
@@ -90,7 +97,7 @@
 ## 0.2.3 — 2026-08-15
 
 - Renamed both the Rust package and executable from `astraflow-cli`/`astf` to `astraflow`.
-- Replaced the nonexistent crates.io update endpoint with the `mfzzf/astraflow-cli` GitHub Releases API.
+- Replaced the nonexistent crates.io update endpoint with the project's GitHub Releases API.
 - Made self-update install checksummed GitHub Release binaries through the cross-platform installers.
 
 ## 0.2.2 — 2026-08-15

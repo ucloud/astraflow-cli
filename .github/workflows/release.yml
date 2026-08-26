@@ -153,6 +153,16 @@ jobs:
       - name: Create checksums
         working-directory: dist
         run: sha256sum astraflow-* > SHA256SUMS
+      - name: Create release manifest
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          jq -n \
+            --arg version "${VERSION#v}" \
+            --arg tag "$VERSION" \
+            --arg repository "$GITHUB_REPOSITORY" \
+            '{schema_version: 1, version: $version, tag: $tag, repository: $repository}' \
+            > dist/release-manifest.json
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}

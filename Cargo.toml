@@ -1,10 +1,10 @@
 [package]
 name = "astraflow"
-version = "0.3.6"
+version = "0.3.7"
 edition = "2024"
 description = "Use AstraFlow ModelVerse with local coding agents"
 license = "Apache-2.0"
-repository = "https://github.com/mfzzf/astraflow-cli"
+repository = "https://github.com/ucloud/astraflow-cli"
 rust-version = "1.88"
 
 [[bin]]

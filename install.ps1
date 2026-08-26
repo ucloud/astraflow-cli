@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$Repository = if ($env:ASTRAFLOW_REPOSITORY) { $env:ASTRAFLOW_REPOSITORY } else { "mfzzf/astraflow-cli" }
+$Repository = if ($env:ASTRAFLOW_REPOSITORY) { $env:ASTRAFLOW_REPOSITORY } else { "ucloud/astraflow-cli" }
 $Version = if ($env:ASTRAFLOW_VERSION) { $env:ASTRAFLOW_VERSION } else { "latest" }
 $Target = switch ($env:PROCESSOR_ARCHITECTURE) {
     "ARM64" { "aarch64-pc-windows-msvc" }

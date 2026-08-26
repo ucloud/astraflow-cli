@@ -1463,7 +1463,8 @@ fn changelog(mode: OutputMode, query: Option<&str>) -> Result<i32> {
     Ok(0)
 }
 
-const LATEST_RELEASE_URL: &str = "https://api.github.com/repos/mfzzf/astraflow-cli/releases/latest";
+const LATEST_RELEASE_URL: &str =
+    "https://github.com/ucloud/astraflow-cli/releases/latest/download/release-manifest.json";
 const UPDATE_CHECK_INTERVAL: u64 = 24 * 60 * 60;
 
 async fn maybe_prompt_for_update(command: &Option<CliCommand>, mode: OutputMode) -> Result<bool> {
@@ -1525,7 +1526,8 @@ async fn latest_release_version(url: &str) -> Result<String> {
         .json()
         .await?;
     payload
-        .get("tag_name")
+        .get("version")
+        .or_else(|| payload.get("tag_name"))
         .and_then(Value::as_str)
         .map(|version| version.strip_prefix('v').unwrap_or(version).to_owned())
         .ok_or_else(|| anyhow!("update service returned no release version"))

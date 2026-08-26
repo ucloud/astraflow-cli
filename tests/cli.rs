@@ -362,7 +362,7 @@ fn completion_script_is_generated() {
 }
 
 #[test]
-fn update_check_reads_a_github_release_manifest() {
+fn update_check_reads_a_static_release_manifest() {
     let listener = TcpListener::bind("127.0.0.1:0").unwrap();
     let address = listener.local_addr().unwrap();
     let server = thread::spawn(move || {
@@ -371,7 +371,7 @@ fn update_check_reads_a_github_release_manifest() {
         let size = stream.read(&mut request).unwrap();
         let request = String::from_utf8_lossy(&request[..size]);
         assert!(request.starts_with("GET /release/latest "));
-        let body = r#"{"tag_name":"v9.8.7"}"#;
+        let body = r#"{"schema_version":1,"version":"9.8.7","tag":"v9.8.7"}"#;
         write!(
             stream,
             "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{}",

@@ -10,7 +10,7 @@ use std::process::Stdio;
 use tempfile::Builder;
 use tokio::process::Command;
 
-const RELEASE_REPOSITORY: &str = "mfzzf/astraflow-cli";
+const RELEASE_REPOSITORY: &str = "ucloud/astraflow-cli";
 const MAX_BINARY_BYTES: usize = 256 * 1024 * 1024;
 const MAX_CHECKSUM_BYTES: usize = 1024 * 1024;
 

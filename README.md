@@ -11,13 +11,13 @@ first run → choose OAuth / AstraFlow Key / custom provider → save named conf
 Linux and macOS:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mfzzf/astraflow-cli/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/ucloud/astraflow-cli/main/install.sh | sh
 ```
 
 Windows PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/mfzzf/astraflow-cli/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/ucloud/astraflow-cli/main/install.ps1 | iex
 ```
 
 The installers detect the operating system and CPU architecture, download the matching GitHub Release asset, verify it against `SHA256SUMS`, and install `astraflow`. Supported release targets are:
@@ -31,14 +31,14 @@ The installers detect the operating system and CPU architecture, download the ma
 By default, Unix installs to `/usr/local/bin` when writable and otherwise to `~/.local/bin`. Windows installs to `%LOCALAPPDATA%\Programs\astraflow\bin` and updates the user `PATH`. To select a version or directory:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mfzzf/astraflow-cli/main/install.sh | \
-  ASTRAFLOW_VERSION=0.3.1 ASTRAFLOW_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://raw.githubusercontent.com/ucloud/astraflow-cli/main/install.sh | \
+  ASTRAFLOW_VERSION=0.3.7 ASTRAFLOW_INSTALL_DIR="$HOME/bin" sh
 ```
 
 For a source install, Rust 1.88 or newer is required:
 
 ```bash
-cargo install --git https://github.com/mfzzf/astraflow-cli --locked
+cargo install --git https://github.com/ucloud/astraflow-cli --locked
 ```
 
 The Rust package is named `astraflow`; the installed command is `astraflow`. In an interactive
@@ -236,6 +236,9 @@ docker run --rm astraflow-harness-all
 
 Pushes to `main` run formatting, tests, Clippy, and hostile-config routing checks with pinned Claude Code 2.1.233, Codex CLI 0.147.0, Grok Build 1.0.4, OpenCode 1.18.18, Hermes Agent 0.19.0, Pi 0.84.2 and 0.73.1, DeepSeek Harness 0.1.0-rc.6, and Prime Agent 0.7.2 on the repository's dedicated Linux x64 self-hosted Rust runner. Tags matching the crate version, such as `v0.3.1`, build Linux GNU binaries inside Rust 1.88 Bookworm containers for glibc 2.36 compatibility, plus native macOS Intel/Apple Silicon and Windows x64/ARM64 archives, before publishing a checksummed GitHub Release. Public pull requests do not run on the self-hosted machine.
 
+Each release also publishes `release-manifest.json`. Automatic and explicit update checks read it
+through GitHub's latest-release asset URL, avoiding the unauthenticated GitHub REST API rate limit.
+
 ## 中文说明
 
 首次直接运行 `astraflow`、`astraflow login` 或 `astraflow config add` 会进入配置向导，可选择 UCloud OAuth（推荐）、直接填写 AstraFlow API Key，或自定义 Base URL + API Key。自定义服务必须选择 Chat Completions、Responses、Anthropic Messages 三种协议之一；若服务不支持 `/v1/models`，可手动填写默认模型。OAuth 会选择中国大陆、新加坡、洛杉矶、法兰克福四个接入地域之一，自动获取默认项目并选择或创建名为 `AstraFlow Agent` 的 Key。
@@ -253,7 +256,7 @@ Pushes to `main` run formatting, tests, Clippy, and hostile-config routing check
 Linux / macOS 一键安装：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mfzzf/astraflow-cli/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/ucloud/astraflow-cli/main/install.sh | sh
 ```
 
 常用命令：

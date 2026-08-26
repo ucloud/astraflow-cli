@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-REPOSITORY=${ASTRAFLOW_REPOSITORY:-mfzzf/astraflow-cli}
+REPOSITORY=${ASTRAFLOW_REPOSITORY:-ucloud/astraflow-cli}
 VERSION=${ASTRAFLOW_VERSION:-latest}
 
 case "$(uname -s)" in
